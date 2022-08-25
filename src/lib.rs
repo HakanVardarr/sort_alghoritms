@@ -27,8 +27,8 @@ mod tests {
     }
     #[test]
     fn quicksort() {
-        let mut ar = [1, 5, 3, 2, 4, 4];
+        let mut ar = [5, 4, 3, 2, 1];
         sort::<_, quicksort::QuickSort>(&mut ar);
-        assert_eq!([1, 2, 3, 4, 4, 5], ar);
+        assert_eq!([1, 2, 3, 4, 5], ar);
     }
 }
