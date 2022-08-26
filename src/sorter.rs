@@ -18,19 +18,6 @@ pub enum SortTypes {
     ShellSort,
 }
 
-/// Sorter for easy sorting.
-///
-/// # Examples
-///
-/// ```
-/// let sorter = sort_algos::sorter::Sorter {
-///         sort_type: sort_algos::sorter::SortTypes::BubbleSort,
-///     };
-///
-/// let mut ar = [5,4,3,2,1];
-/// sorter.sort(&mut ar);
-///  
-/// ```
 pub struct Sorter {
     pub sort_type: SortTypes,
 }
