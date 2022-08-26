@@ -1,19 +1,12 @@
-mod bubblesort;
-mod mergesort;
-mod quicksort;
+#![allow(unused)]
+
+pub mod sorter;
+use sorter::{SortTypes, Sorter};
+
 trait Sort {
     fn sort<T>(ar: &mut [T])
     where
         T: PartialOrd + Copy;
-}
-
-#[allow(dead_code)]
-fn sort<T, S>(ar: &mut [T])
-where
-    T: PartialOrd + Copy,
-    S: Sort,
-{
-    S::sort(ar);
 }
 
 #[cfg(test)]
@@ -22,20 +15,67 @@ mod tests {
     #[test]
     fn bubblesort() {
         let mut ar = [1, 5, 3, 2, 4, 4];
-        sort::<_, bubblesort::BubbleSort>(&mut ar);
+
+        let sorter = Sorter {
+            sort_type: SortTypes::BubbleSort,
+        };
+        sorter.sort(&mut ar);
+
+        assert_eq!([1, 2, 3, 4, 4, 5], ar);
+    }
+    #[test]
+    fn insertionsort() {
+        let mut ar = [1, 5, 3, 2, 4, 4];
+
+        let sorter = Sorter {
+            sort_type: SortTypes::InsertionSort,
+        };
+        sorter.sort(&mut ar);
+
+        assert_eq!([1, 2, 3, 4, 4, 5], ar);
+    }
+    #[test]
+    fn mergesort() {
+        let mut ar = [1, 5, 3, 2, 4, 4];
+
+        let sorter = Sorter {
+            sort_type: SortTypes::MergeSort,
+        };
+        sorter.sort(&mut ar);
+
         assert_eq!([1, 2, 3, 4, 4, 5], ar);
     }
     #[test]
     fn quicksort() {
-        let mut ar = [5, 4, 3, 2, 1];
-        sort::<_, quicksort::QuickSort>(&mut ar);
-        assert_eq!([1, 2, 3, 4, 5], ar);
-    }
+        let mut ar = [1, 5, 3, 2, 4, 4];
 
+        let sorter = Sorter {
+            sort_type: SortTypes::QuickSort,
+        };
+        sorter.sort(&mut ar);
+
+        assert_eq!([1, 2, 3, 4, 4, 5], ar);
+    }
     #[test]
-    fn mergesort() {
-        let mut ar = [2, 1];
-        sort::<_, mergesort::MergeSort>(&mut ar);
-        assert_eq!([1, 2], ar);
+    fn selectionsort() {
+        let mut ar = [1, 5, 3, 2, 4, 4];
+
+        let sorter = Sorter {
+            sort_type: SortTypes::SelectionSort,
+        };
+        sorter.sort(&mut ar);
+
+        assert_eq!([1, 2, 3, 4, 4, 5], ar);
+    }
+    #[test]
+    fn shellsort() {
+        let mut ar = [1, 5, 3, 2, 4, 4];
+
+        let sorter = Sorter {
+            sort_type: SortTypes::ShellSort,
+        };
+        sorter.sort(&mut ar);
+
+        assert_eq!([1, 2, 3, 4, 4, 5], ar);
     }
 }

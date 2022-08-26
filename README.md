@@ -3,4 +3,7 @@
 
 Bubble Sort ✅\
 Quick Sort ✅\
-Merge Sort ✅
+Merge Sort ✅\
+Selection Sort ✅\ 
+Inserstion Sort ✅\
+Shell Sort ✅
