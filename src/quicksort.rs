@@ -5,13 +5,13 @@ pub struct QuickSort;
 impl Sort for QuickSort {
     fn sort<T>(ar: &mut [T])
     where
-        T: PartialOrd,
+        T: PartialOrd + Copy,
     {
         quick_sort(ar, 0, ar.len() as isize - 1);
     }
 }
 
-fn quick_sort<T: PartialOrd>(ar: &mut [T], left: isize, right: isize) {
+fn quick_sort<T: PartialOrd + Copy>(ar: &mut [T], left: isize, right: isize) {
     if left < right as isize {
         let p = _quick_sort(ar, left, right);
         quick_sort(ar, left, p - 1);
@@ -19,7 +19,7 @@ fn quick_sort<T: PartialOrd>(ar: &mut [T], left: isize, right: isize) {
     }
 }
 
-fn _quick_sort<T: PartialOrd>(ar: &mut [T], left: isize, right: isize) -> isize {
+fn _quick_sort<T: PartialOrd + Copy>(ar: &mut [T], left: isize, right: isize) -> isize {
     let mut i = left - 1;
 
     for j in left..right {

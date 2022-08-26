@@ -5,7 +5,7 @@ pub struct BubbleSort;
 impl Sort for BubbleSort {
     fn sort<T>(ar: &mut [T])
     where
-        T: PartialOrd,
+        T: PartialOrd + Copy,
     {
         let mut sorted = false;
         while !sorted {

@@ -1,16 +1,16 @@
 mod bubblesort;
+mod mergesort;
 mod quicksort;
-
 trait Sort {
     fn sort<T>(ar: &mut [T])
     where
-        T: PartialOrd;
+        T: PartialOrd + Copy;
 }
 
 #[allow(dead_code)]
 fn sort<T, S>(ar: &mut [T])
 where
-    T: PartialOrd,
+    T: PartialOrd + Copy,
     S: Sort,
 {
     S::sort(ar);
@@ -30,5 +30,12 @@ mod tests {
         let mut ar = [5, 4, 3, 2, 1];
         sort::<_, quicksort::QuickSort>(&mut ar);
         assert_eq!([1, 2, 3, 4, 5], ar);
+    }
+
+    #[test]
+    fn mergesort() {
+        let mut ar = [2, 1];
+        sort::<_, mergesort::MergeSort>(&mut ar);
+        assert_eq!([1, 2], ar);
     }
 }
