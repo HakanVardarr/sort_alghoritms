@@ -4,6 +4,6 @@
 Bubble Sort ✅\
 Quick Sort ✅\
 Merge Sort ✅\
-Selection Sort ✅\ 
+Selection Sort ✅\
 Inserstion Sort ✅\
 Shell Sort ✅
