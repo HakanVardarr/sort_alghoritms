@@ -2,4 +2,5 @@
 ## Trying to implement sort alghoritms on RustLang
 
 Bubble Sort ✅\
-Quick Sort ✅
+Quick Sort ✅\
+Merge Sort ✅
