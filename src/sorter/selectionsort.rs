@@ -14,7 +14,9 @@ impl Sort for SelectionSort {
                     smallest = j;
                 }
             }
-            ar.swap(smallest, i);
+            if i != smallest{
+                ar.swap(smallest, i);   
+            }
         }
     }
 }
